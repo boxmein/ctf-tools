@@ -7,8 +7,8 @@ RUN chmod +x /usr/local/bin/apt-get-install
 RUN apt-get-install build-essential libtool g++ gcc \
     texinfo curl wget automake autoconf python python-dev git subversion \
     unzip virtualenvwrapper sudo  git virtualenvwrapper ca-certificates \
-    flex bison libglib2.0-dev libcurl-openssl-dev binutils-dev libunwind-dev ssh \
-    libsqlite3-dev cmake
+    flex bison libglib2.0-dev libcurl4-openssl-dev binutils-dev libunwind-dev ssh \
+    libsqlite3-dev cmake libelf-dev libssl-dev
 
 RUN useradd -m ctf
 RUN echo "ctf ALL=NOPASSWD: ALL" > /etc/sudoers.d/ctf
@@ -33,7 +33,7 @@ USER ctf
 RUN bin/manage-tools -s setup
 RUN bin/ctf-tools-pip install appdirs
 RUN echo 'source /home/ctf/tools/bin/ctf-tools-venv-activate' >> /home/ctf/.bashrc
-RUN bash -c 'set -x; for t in afl binwalk capstone checksec dirb dirsearch honggfuzz lief littleblackbox manticore miasm pdf-parser peepdf rr scrdec18 snowman subbrute unicorn valgrind wcc; do PATH=/home/ctf/tools/bin:$PATH bin/manage-tools install $t; done' 
+RUN bash -c 'set -x; for t in afl binwalk capstone checksec dirb dirsearch honggfuzz littleblackbox manticore miasm pdf-parser peepdf rr scrdec18 subbrute unicorn valgrind wcc; do PATH=/home/ctf/tools/bin:$PATH bin/manage-tools install $t; done' 
 #RUN bin/manage-tools install binwalk
 #RUN bin/manage-tools install capstone
 #RUN bin/manage-tools install checksec
