@@ -1,7 +1,8 @@
 #!/bin/bash -ex
 git clone https://github.com/volatilityfoundation/volatility.git volatility/
+mkdir -p bin
 echo <<EOF >bin/volatility
 #!/bin/sh
-set -e
-exec python3 $(git rev-parse --show-toplevel)/volatility/volatility/vol.py $*
+exec python $PWD/volatility/vol.py $*
 EOF
+chmod +x bin/volatility
