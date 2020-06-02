@@ -1,2 +1,7 @@
 #!/bin/bash -ex
-ctf-tools-pip install -U volatility2
+git clone https://github.com/volatilityfoundation/volatility.git volatility/
+echo <<EOF >bin/volatility
+#!/bin/sh
+set -e
+exec python3 $(git rev-parse --show-toplevel)/volatility/volatility/vol.py $*
+EOF
