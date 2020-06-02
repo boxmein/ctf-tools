@@ -1,7 +1,7 @@
 #!/bin/bash -ex
 git clone https://github.com/volatilityfoundation/volatility.git volatility/
 mkdir -p bin
-echo <<EOF >bin/volatility
+cat <<EOF >bin/volatility
 #!/bin/sh
 exec python $PWD/volatility/vol.py $*
 EOF
