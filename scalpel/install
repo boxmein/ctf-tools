@@ -1,0 +1,13 @@
+#!/bin/bash -ex
+
+git clone --depth 1 https://github.com/sleuthkit/scalpel.git
+
+cd scalpel
+./bootstrap
+./configure
+make
+cd ..
+
+mkdir bin
+cd bin
+ln -s ../sqlmap/sqlmap.py .
