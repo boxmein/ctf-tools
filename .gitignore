@@ -5,3 +5,5 @@ bin/*
 !*/install-root-*
 !*/upgrade
 !*/test
+kali.qcow2
+kali-linux-2019.3-amd64.iso

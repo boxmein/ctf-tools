@@ -134,7 +134,7 @@ function base_build_setup()
 {
 	case "$1" in
 		"ubuntu")
-			;&  # fallthrough
+			;;  # fallthrough
 		"debian")
 			base_build_setup_debian
 			;;
@@ -479,7 +479,7 @@ case $ACTION in
 				tool_log "Install succeeded. No test script!"
 			fi
 			exit 0
-			); 
+			);
 			then
 				if [ "$EXPECTFAIL" -eq "1" ]; then exit 1; else exit 0; fi
 			else

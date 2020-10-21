@@ -1,0 +1,6 @@
+#!/bin/bash -ex
+git clone --depth 1 https://github.com/ShawnDEvans/smbmap.git
+ctf-tools-pip install -r smbmap/requirements.txt
+mkdir bin
+cd bin
+ln -s ../smbmap/smbmap.py .
