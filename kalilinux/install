@@ -8,8 +8,10 @@ fi
 docker pull kalilinux/kali-rolling
 mkdir bin
 cd bin
+
 cat <<EOF > kalilinux
 #!/bin/sh
 docker run -it kalilinux/kali-rolling
-EOF 
-chmod +x kalilinux 
+EOF
+
+chmod +x kalilinux
