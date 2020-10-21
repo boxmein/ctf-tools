@@ -1,0 +1,9 @@
+#!/bin/bash -ex
+
+git clone --depth 1 https://github.com/hashcat/hashcat.git
+cd hashcat
+make
+cd ..
+mkdir bin
+cd bin
+ln -s ../hashcat/hashcat .
