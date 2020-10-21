@@ -5,7 +5,7 @@ if ! command -v docker >/dev/null 2>/dev/null; then
 	exit 1
 fi
 
-wget -qO . https://raw.githubusercontent.com/1N3/Sn1per/master/Dockerfile
+wget -qO Dockerfile https://raw.githubusercontent.com/1N3/Sn1per/master/Dockerfile
 docker build -t sn1per .
 
 mkdir bin

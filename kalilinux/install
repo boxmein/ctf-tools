@@ -1,0 +1,15 @@
+#!/bin/bash -ex
+
+if ! command -v docker >/dev/null 2>/dev/null; then
+	echo "Docker is required"
+	exit 1
+fi
+
+docker pull kalilinux/kali-rolling
+mkdir bin
+cd bin
+cat <<EOF > kalilinux
+#!/bin/sh
+docker run -it kalilinux/kali-rolling
+EOF 
+chmod +x kalilinux 
