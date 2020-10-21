@@ -1,0 +1,18 @@
+#!/bin/bash -ex
+
+if ! command -v docker >/dev/null 2>/dev/null; then
+	echo "Docker is required"
+	exit 1
+fi
+
+wget -qO . https://raw.githubusercontent.com/1N3/Sn1per/master/Dockerfile
+docker build -t sn1per .
+
+mkdir bin
+cd bin
+cat <<EOF > sn1per
+#!/bin/sh
+docker run -it sn1per
+EOF
+
+chmod +x sn1per
