@@ -6,6 +6,7 @@ fi
 git clone --depth 1 https://github.com/boxmein-forks/katana.git
 cd katana/docker/
 docker build -t katana .
+cd ../..
 mkdir bin
 cd bin
 cat <<EOF > katana
@@ -15,3 +16,4 @@ echo "flag-format=FLAG{.*?}"
 echo "If the katana docker image does not exist: cd ctf-tools/katana/katana/docker; docker build -t katana ."
 docker run -v "$(pwd)":/data -it katana
 EOF
+chmod +x katana
