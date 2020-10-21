@@ -1,0 +1,17 @@
+#!/bin/bash -ex
+if ! command -v docker >/dev/null 2>/dev/null; then
+  echo "Docker must be present to use katana"
+fi
+
+git clone --depth 1 https://github.com/boxmein-forks/katana.git
+cd katana/docker/
+docker build -t katana .
+mkdir bin
+cd bin
+cat <<EOF > katana
+echo "Make sure you have a katana.ini file in the current folder:"
+echo "[manager]"
+echo "flag-format=FLAG{.*?}"
+echo "If the katana docker image does not exist: cd ctf-tools/katana/katana/docker; docker build -t katana ."
+docker run -v "$(pwd)":/data -it katana
+EOF
