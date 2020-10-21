@@ -1,0 +1,12 @@
+#!/bin/bash -ex
+
+git clone --depth 1 https://github.com/secgroup/flower
+mkdir bin
+cd bin
+cat <<EOF > flower
+#!/bin/sh
+cd $(pwd)/../flower
+docker-compose up
+EOF
+
+chmod +x flower
