@@ -1,0 +1,7 @@
+#!/bin/bash -ex
+
+git clone --depth 1 https://github.com/Ganapati/RsaCtfTool.git
+ctf-tools-pip3 install -r RsaCtfTool/requirements.txt
+mkdir bin
+cd bin
+ln -s ../RsaCtfTool/RsaCtfTool.py .
