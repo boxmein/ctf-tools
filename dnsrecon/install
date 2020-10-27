@@ -1,0 +1,7 @@
+#!/bin/bash -ex
+
+git clone --depth 1 https://github.com/darkoperator/dnsrecon.git
+ctf-tools-pip3 install -r dnsrecon/requirements.txt
+mkdir bin
+cd bin
+ln -s ../dnsrecon/dnsrecon.py .
