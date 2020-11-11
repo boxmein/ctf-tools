@@ -5,13 +5,13 @@ if ! command -v docker >/dev/null 2>/dev/null; then
 	exit 1
 fi
 
-docker pull kalilinux/kali-rolling
+docker pull booyaabes/kali-linux-full
 mkdir bin
 cd bin
 
 cat <<EOF > kalilinux
 #!/bin/sh
-docker run -it kalilinux/kali-rolling
+docker run -it booyaabes/kali-linux-full
 EOF
 
 chmod +x kalilinux
