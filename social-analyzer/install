@@ -10,7 +10,7 @@ mkdir -p bin
 
 cat <<EOF > bin/social-analyzer
 #!/bin/bash -ex
-cd $(pwd)/../flower
+cd $(pwd)/social-analyzer
 docker-compose up
 EOF
 
