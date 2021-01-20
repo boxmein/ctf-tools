@@ -1,11 +1,13 @@
 #!/bin/bash -ex
 
 git clone https://github.com/qeeqbox/social-analyzer.git
+
 mkdir -p bin
 
-echo <<EOF > bin/social-analyzer
+cat <<EOF > bin/social-analyzer
 #!/bin/bash -ex
-
 docker-compose -f docker-compose.yml up
 EOF
+
+chmod +x bin/social-analyzer
 
