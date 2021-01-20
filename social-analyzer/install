@@ -6,6 +6,7 @@ mkdir -p bin
 
 cat <<EOF > bin/social-analyzer
 #!/bin/bash -ex
+cd ../social-analyzer
 docker-compose -f docker-compose.yml up
 EOF
 
